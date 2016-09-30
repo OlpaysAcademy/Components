@@ -1,0 +1,17 @@
+.DateRangeFilter {
+    display: flex;
+    flex: 1;
+    // React toolbox doesn't give us a way to style the wrapper of the input
+    & > div[data-react-toolbox='date-picker'] {
+        flex: 1
+    }
+}
+
+.ClearButton {
+    min-width: 4rem;
+    margin-top: 21px;
+
+    span[data-react-toolbox="font-icon"] {
+        margin-right: 0
+    } 
+}

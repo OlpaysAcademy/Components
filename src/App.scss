@@ -1,0 +1,26 @@
+.Container {
+    display: flex;
+}
+
+.Code {
+    font-size: 1.2rem;
+}
+
+//Just a little fix, not for production
+.Autocomplete {
+    padding: 0 !important;
+    flex: 1
+}
+
+.Switch {
+    margin-top: 10px;
+}
+
+.Button {
+    min-width: 4rem;
+    margin-top: 21px;
+
+    span[data-react-toolbox="font-icon"] {
+        margin-right: 0
+    } 
+}
