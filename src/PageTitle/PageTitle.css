@@ -1,0 +1,15 @@
+.PageTitle {
+    padding: 23px;
+}
+
+.PageTitle-title {
+    font-weight: 300;
+    margin: 0
+}
+
+.PageTitle-subtitle {
+    color: #bbb;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 0
+}

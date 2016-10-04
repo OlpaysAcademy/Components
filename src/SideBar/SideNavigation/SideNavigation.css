@@ -1,0 +1,39 @@
+.SideNavigation {
+    background: #16222A;
+    background: linear-gradient(to bottom, #16222A, #3A6073);
+    color: #CADEF3;
+    min-height: 100%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    width: 240px;
+}
+.SideNavigation-profile {
+    background-color: rgba(22, 22, 22, 0.1);
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.SideNavigation-profile-image-wrapper {
+    padding: 10px 10px 7px 10px;
+}
+
+.SideNavigation-profile-image {
+    width: 35px;
+}
+
+.SideNavigation-profile-data {
+    flex: 1;
+    padding: 8px 8px 5px 8px;
+
+}
+
+.SideNavigation-profile-data-name {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+}
+
+.SideNavigation-profile-data-title {
+    font-size: 12px;
+    margin: 0;
+}

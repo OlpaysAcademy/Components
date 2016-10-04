@@ -1,0 +1,40 @@
+.BusinessItem {
+    display: flex;
+    font-size: 12px;
+    padding: 7px;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-radius: 0;
+}
+
+.BusinessItem:first-child, .BusinessItem:last-child {
+    border-radius: none;
+}
+
+.BusinessItem:first-child {
+    border-top: none;
+}
+
+.BusinessItem-image-wrapper {
+    padding: 5px;
+    width: 45px;
+}
+
+.BusinessItem-data {
+    flex: 1;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.BusinessItem-data-name {
+    font-weight: bold;
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.BusinessItem-data-id {
+    font-weight: 200; 
+    margin-bottom: 0;
+}

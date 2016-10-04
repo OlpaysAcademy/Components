@@ -1,0 +1,70 @@
+.SideNavigationItem-list-item {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    font-size: 12px; 
+    padding: 0;
+}
+
+.SideNavigationItem-list-item-Link {
+    color: #CADEF3; 
+    display: block;
+    padding: 5px 0 5px 5px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.SideNavigationItem-list-item-Link:hover, .SideNavigationItem-list-item-Link:focus {
+    color: #fff;
+    background: rgba(222, 222, 222, 0.05);
+    text-decoration: none;
+}
+
+.SideNavigationItem-list-item-a:visited {
+    color: #CADEF3; 
+    text-decoration: none;
+}
+
+.SideNavigationItem-list-item-a-Glyphicon {
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    width: 50px;
+}
+
+.SideNavigationItem-list-item-a-span {
+    padding-left: 10px;
+}
+
+.SideNavigationItem-list-item-a-span-chevron {
+    float: right;
+    line-height: 40px;
+    margin-right: 15px;
+}
+
+.SideNavigationItem-Collapse {
+    color: #fff;
+    background: rgba(222, 222, 222, 0.05);   
+}
+
+.SideNavigationItem-Collapse-ul {
+    font-size: 12px;
+    margin-bottom: 0;
+    padding-left: 45px;
+}
+
+.SideNavigationItem-Collapse-ul-li {
+    font-size: 12px;
+    padding: 8px 0 8px 25px;
+}
+
+
+.SideNavigationItem-Collapse-ul-li-Link:hover, .SideNavigationItem-Collapse-ul-li-Link:focus {
+    text-decoration: none;
+}
+
+.SideNavigationItem-Collapse-ul-li-Link:visited {
+    color: #CADEF3; 
+    text-decoration: none;
+}

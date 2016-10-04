@@ -1,0 +1,80 @@
+.LoadingListItem {
+    background: #fff;
+    border-bottom: 1px #eee solid;
+    padding: 20px 30px;
+}
+
+.LoadingListItem-wrapper {
+    max-width: 472px;
+}
+
+@keyframes LoadingListItem-shimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.LoadingListItem-animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: LoadingListItem-shimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+.background-masker {
+    background: #fff;
+    position: absolute;
+}
+
+.background-masker.content-top,
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+.background-masker.content-top {
+    height:8px;
+}
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end{
+    width: auto;
+    left: 380px;
+    right: 0;
+    top: 18px;
+    height: 8px;
+}
+
+.background-masker.content-second-line  {
+    top: 26px;
+}
+
+.background-masker.content-second-end {
+    left: 320px;
+    top: 32px;
+}
+
+.background-masker.content-third-line {
+    top: 40px;
+}
+
+.background-masker.content-third-end {
+    left: 300px;
+    top: 88px;
+}

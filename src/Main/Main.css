@@ -1,0 +1,13 @@
+.Main {
+    background-color:#F7F7F7;
+    padding: 22.5px;
+}
+
+.Main-container {
+    background-color: white; 
+    min-height: 300px;
+}
+
+.Main-container-padded {
+    padding: 20px 25px;
+}
