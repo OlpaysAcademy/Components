@@ -112,7 +112,7 @@ class App extends Component {
                                 <NavItem eventKey={2} href="#">Logout</NavItem>
                             </Nav>
                         </Navbar>
-                        <Match exactly pattern="/" component={generatePage(ListPage, 'List', { padded: false }) } />
+                        <Match exactly pattern="/" component={generatePage(ListPage, 'Payments', { padded: false }) } />
                         <Miss component={generatePage(() => (<p>No se encontro</p>), '404')} />
                     </SideBar>
                 </div >

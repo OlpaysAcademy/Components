@@ -1,0 +1,16 @@
+.ListItemsWrapper-empty-container {
+    padding: 15px 0;
+}
+
+.ListItemsWrapper-empty {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    padding: 40px;
+    width: 65%;
+    margin: 15px auto;
+}
+
+.ListItemsWrapper-empty-icon {
+    font-size: 35px;
+}

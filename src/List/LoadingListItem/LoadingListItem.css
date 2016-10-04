@@ -5,15 +5,16 @@
 }
 
 .LoadingListItem-wrapper {
-    max-width: 472px;
+    width: 100%;
+    position: relative
 }
 
 @keyframes LoadingListItem-shimmer{
     0%{
-        background-position: -468px 0
+        background-position: 100% 0
     }
     100%{
-        background-position: 468px 0
+        background-position: -100% 0%
     }
 }
 
@@ -25,8 +26,8 @@
     animation-timing-function: linear;
     background: #f6f7f8;
     background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-    background-size: 800px 104px;
-    height: 96px;
+    background-size: 200% 40px;
+    height: 40px;
     position: relative;
 }
 

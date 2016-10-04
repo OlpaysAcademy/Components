@@ -1,9 +1,10 @@
 // @flow
-import React from 'react';
+import R from 'ramda';
+import React, {Component} from 'react';
 
 import type { MatchComponentProps } from '../types'
 
-import { List, ListItem, LoadingListItem } from '../List'
+import { List, ListItem, ListItemsWrapper } from '../List'
 
 import './ListPage.css';
 
@@ -21,26 +22,60 @@ const items = [
     { _id: '57f2ae54842412e9daffc714', amount: 10000, nameOnCard: 'Alberto Spinetta' },
 ]
 
-const ListPage = (props: MatchComponentProps) => {
-    return (
-        <List>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                <LoadingListItem key={i} />
-            )) }
-        </List>
-    )
+class ListPage extends Component {
+    props: MatchComponentProps;
+    state: {
+        loading: boolean
+    }
+
+    loadingTimeout: number | void
+
+    constructor(props: MatchComponentProps) {
+        super(props);
+        this.state = {
+            loading: true
+        }
+    }
+
+    componentDidMount() {
+        this.loadingTimeout = setTimeout(() => {
+            this.setState({ loading: false });
+        }, 2000);
+    }
+
+    componentWillUnmount() {
+        if (!R.isNil(this.loadingTimeout)) {
+            clearTimeout(this.loadingTimeout);
+            this.loadingTimeout = undefined;
+        }
+    }
+
+    render() {
+        const {loading} = this.state;
+        return (
+            <List>
+                <ListItemsWrapper 
+                    emptyIcon='credit-card'
+                    emptyMessage={`You don't have any payments right now. As soon as you receive the first one it will be shown here`}
+                    itemsCount={2}
+                    loading={loading}
+                    times={10} >
+                    {items.map((item: Item) =>
+                        <ListItem key={item._id} className='ListPageItem'>
+                            <div>
+                                <span className='ListPageItem-amount'>{item.amount / 100}</span>
+                                {" - "}
+                                <span className='ListPageItem-amount'>{item._id}</span>
+                            </div>
+                            <div>
+                                <span className='ListPageItem-nameOnCard'>{item.nameOnCard}</span>
+                            </div>
+                        </ListItem>
+                    ) }
+                </ListItemsWrapper>
+            </List>
+        )
+    }
 }
-// {items.map((item: Item) =>
-//     <ListItem key={item._id} className='ListPageItem'>
-//         <div>
-//             <span className='ListPageItem-amount'>{item.amount / 100}</span>
-//             {" - "}
-//             <span className='ListPageItem-amount'>{item._id}</span>
-//         </div>
-//         <div>
-//             <span className='ListPageItem-nameOnCard'>{item.nameOnCard}</span>
-//         </div>
-//     </ListItem>
-// ) }
 
 export default ListPage

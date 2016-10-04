@@ -4,6 +4,7 @@ html, body {
 body {
     font-family: "Lato", Helvetica, Arial, sans-serif;
     font-size: 12px;
+    background: #F7F7F7;
 }
 
 #root {

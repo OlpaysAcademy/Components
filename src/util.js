@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createElement} from 'react';
 import PageTitle from './PageTitle'
 import Main from './Main'
 
@@ -20,7 +20,7 @@ const generatePage = (
     <div>
         <PageTitle title={title} subtitle={subtitle} icon={icon} />
         <Main padded={padded} >
-            {component(props)}
+            { createElement(component, props) }
         </Main>
     </div>
 )

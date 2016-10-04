@@ -30,5 +30,11 @@ export type MatchComponentProps = {
     pathname: string,
     isExact: boolean,
     location: Location,
-    params: { [key: string]: string  }
+    params: { [key: string]: string }
 }
+
+export type ClassNamesParams = string |
+    { [className: string]: ?boolean } |
+    Array<string> |
+    void |
+    null

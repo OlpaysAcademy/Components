@@ -2,11 +2,13 @@
 import React from 'react';
 import classNames from 'classnames'
 
+import type { ClassNamesParams } from '../../types';
+
 import './ListItem.css';
 
 type ListItemProps = {
     children?: React$Element<{}>,
-    className?: string,
+    className?: ClassNamesParams,
 }
 
 const ListItem = ({children, className}: ListItemProps) => {

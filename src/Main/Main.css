@@ -1,11 +1,10 @@
 .Main {
-    background-color:#F7F7F7;
     padding: 22.5px;
+    height: 100%;
 }
 
 .Main-container {
     background-color: white; 
-    min-height: 300px;
 }
 
 .Main-container-padded {
