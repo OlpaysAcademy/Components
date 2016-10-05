@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import { ControlLabel, FormGroup, DatePicker } from '../../../Form'
 
+import './DateRangeFilter.css'
+
 type DateRangeFilterValue = {
     from: moment$Moment,
     to: moment$Moment,
@@ -47,7 +49,7 @@ class DateRangeFilter extends Component {
         return (
             <FormGroup>
                 <ControlLabel>{label}</ControlLabel>
-                <div className='DateRangeFilter-wrapper' style={{display: 'flex'}}>
+                <div className='DateRangeFilter-wrapper'>
                     <DatePicker
                         minDate={minDate}
                         onChange={this.handleChange.bind(this, 'from')}
