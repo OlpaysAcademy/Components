@@ -1,0 +1,20 @@
+.ReactSelect {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.ReactSelect .Select-control {
+    border: 1px solid #E8EEF5;
+    border-radius: 2px;
+}
+
+.ReactSelect .Select-menu-outer {
+    border: 1px solid #E8EEF5;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.ReactSelect.is-focused .Select-control {
+    border-color: #66afe9;
+    box-shadow: none;
+}

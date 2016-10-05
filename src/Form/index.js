@@ -2,6 +2,7 @@ import { Form, FormGroup, InputGroup } from 'react-bootstrap'
 import FormControl from './FormControl'
 import DatePicker from './DatePicker'
 import ControlLabel from './ControlLabel'
+import Select from './Select'
 
 import './Form.css';
 
@@ -11,5 +12,6 @@ export {
     DatePicker,
     ControlLabel,
     FormControl,
-    InputGroup
+    InputGroup,
+    Select
 }
