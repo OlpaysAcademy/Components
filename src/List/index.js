@@ -9,6 +9,7 @@ export {
     DateRangeFilter,
     Filters,
     InputFilter,
+    SelectFilter,
 } from './Filters';
 
 export {

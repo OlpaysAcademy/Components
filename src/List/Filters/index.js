@@ -1,5 +1,5 @@
 import Filters from './Filters'
-// import SelectFilter from './SelectFilter'
+import SelectFilter from './SelectFilter'
 import InputFilter from './InputFilter'
 import DateFilter from './DateFilter'
 import DateRangeFilter from './DateRangeFilter'
@@ -8,7 +8,7 @@ import DateRangeFilter from './DateRangeFilter'
 
 export {
     Filters,
-    // SelectFilter,
+    SelectFilter,
     InputFilter,
     DateFilter,
     DateRangeFilter,

@@ -1,52 +1,25 @@
 // @flow
 import React, { Component } from 'react';
-import Dropdown from 'react-toolbox/lib/dropdown';
-
-type Option = { value: string, label?: string }
+import { Select, LabeledInput } from '../../../Form';
 
 type SelectFilterProps = {
-    options: Option[],
-    onChange: (value: string) => void,
-    value?: string
+    label: string,
+    [prop: string]: any,
 }
 
 class SelectFilter extends Component {
-    props: SelectFilterProps;
-    state: { value: string | void }
-    static defaultProps: { onChange: () => void }
-
-    constructor(props: SelectFilterProps) {
-        super(props)
-        this.state = { value: props.value }
-    }
-
-    componentWillReceiveProps(newProps: SelectFilterProps) {
-        if (this.props.value !== newProps.value) {
-            this.setState({ value: newProps.value });
-        }
-    }
-
-    handleChange(value: string) {
-        this.setState({ value });
-        this.props.onChange(value);
-    }
+    props: SelectFilterProps
 
     render() {
-        const { options, ...other } = this.props; 
+        const { label, ...other} = this.props;
         return (
-            <Dropdown
-                {...other}
-                auto
-                onChange={this.handleChange.bind(this)}
-                source={options}
-                value={this.state.value}
-                />
+            <LabeledInput label={label}>
+                <Select
+                    {...other}
+                    />
+            </LabeledInput>
         );
     }
-}
-
-SelectFilter.defaultProps = {
-    onChange: () => { }
 }
 
 export default SelectFilter;

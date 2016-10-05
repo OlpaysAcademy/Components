@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { FormGroup, ControlLabel, FormControl } from '../../../Form'
+import { LabeledInput, FormControl } from '../../../Form'
 
 type InputFilterProps = {
     label: string,
@@ -9,15 +9,12 @@ type InputFilterProps = {
 
 const InputFilter = ({ label, ...other }: InputFilterProps) => {
     return (
-        <FormGroup
-            controlId="formBasicText"
-            >
-            <ControlLabel>{label}</ControlLabel>
+        <LabeledInput label={label}>
             <FormControl
                 placeholder={label}
                 {...other}
                 type='text' />
-        </FormGroup>
+        </LabeledInput>
     )
 }
 

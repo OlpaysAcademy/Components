@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import { ControlLabel, FormGroup, DatePicker } from '../../../Form'
+import { LabeledInput, DatePicker } from '../../../Form'
 
 
 type DateFilterProps = {
@@ -16,12 +16,11 @@ class DateFilter extends Component {
         const { label, ...other } = this.props
 
         return (
-            <FormGroup>
-                <ControlLabel>{label}</ControlLabel>
+            <LabeledInput label={label} >
                 <DatePicker
-                    placeholderText={label} 
+                    placeholderText={label}
                     {...other}/>
-            </FormGroup>
+            </LabeledInput >
         );
     }
 }

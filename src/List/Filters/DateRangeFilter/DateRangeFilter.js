@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import { ControlLabel, FormGroup, DatePicker } from '../../../Form'
+import { LabeledInput, DatePicker } from '../../../Form'
 
 import './DateRangeFilter.css'
 
@@ -54,8 +54,7 @@ class DateRangeFilter extends Component {
     render() {
         const { fromLabel, label, maxDate, minDate, toLabel } = this.props
         return (
-            <FormGroup>
-                <ControlLabel>{label}</ControlLabel>
+            <LabeledInput label={label} >
                 <div className='DateRangeFilter-wrapper'>
                     <DatePicker
                         minDate={minDate}
@@ -71,7 +70,7 @@ class DateRangeFilter extends Component {
                         maxDate={maxDate}
                         minDate={this.state.from} />
                 </div>
-            </FormGroup>
+            </LabeledInput>
         );
     }
 }

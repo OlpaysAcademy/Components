@@ -4,8 +4,6 @@ import React, {Component} from 'react';
 
 import type { MatchComponentProps } from '../types'
 
-import { Select } from '../Form'
-
 import {
     DateFilter,
     DateRangeFilter,
@@ -14,6 +12,7 @@ import {
     List,
     ListItem,
     ListItemsWrapper,
+    SelectFilter,
 } from '../List'
 
 import Layout from '../Layout';
@@ -73,6 +72,11 @@ class ListPage extends Component {
     render() {
         const {loading} = this.state;
 
+        const options = [
+            { value: 'approved', label: 'Approved' },
+            { value: 'rejected', label: 'Rejected' }
+        ];
+
         const actions = (
             <Filters>
                 <div>
@@ -85,6 +89,7 @@ class ListPage extends Component {
                         label='Date Range'
                         fromLabel='From'
                         toLabel='To' />
+                    <SelectFilter label='Status' options={options} />
                 </div>
             </Filters>
         )
