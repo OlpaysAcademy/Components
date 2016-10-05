@@ -23,8 +23,8 @@ class Filters extends Component {
             <Popover id="Filters-Popover" className='Filters-Popover' style={{ maxWidth: 'none' }} >
                 <div className='Filters-Popover-wrapper'>
                     <div className='Filter-Popover-actions'>
-                        <Button secondary={true}>Clear</Button>
-                        <Button primary={true} className='pull-right'>Apply</Button>
+                        <Button>Clear</Button>
+                        <Button bsStyle='primary' className='pull-right'>Apply</Button>
                     </div>
                     {this.props.children}
                 </div>
@@ -35,7 +35,7 @@ class Filters extends Component {
         return (
             <div className='Filters'>
                 <OverlayTrigger trigger="click" placement="bottom" overlay={popoverBottom}>
-                    <Button>
+                    <Button outline={true}>
                         <Glyphicon glyph='filter' />
                         {" "}
                         {filterText}

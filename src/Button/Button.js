@@ -3,22 +3,26 @@ import React from 'react'
 import classNames from 'classnames'
 import { Button as BootstrapButton } from 'react-bootstrap'
 
-import type { ClassNamesParams } from '../types';
+import type { ClassNamesParams } from '../types' 
 
 import './Button.css'
 
 type ButtonProps = {
+    bsStyle?: string,
     className?: ClassNamesParams,
-    secondary?: boolean,
+    outline?: boolean,
     [prop: string]: string,
 }
 
 const Button = (props: ButtonProps) => {
-    const { className, secondary, ...other } = props;
+    const { bsStyle, className, outline, ...other } = props;
+    const style = bsStyle || 'default'
     return (
         <BootstrapButton
-            className={classNames({ 'btn-secondary': secondary }, className) }
-            {...other}>
+            {...other}
+            bsStyle={bsStyle}
+            className={ classNames(className, { [`btn-${style}-outline`]: outline }) }
+            >
         </BootstrapButton>
     )
 }

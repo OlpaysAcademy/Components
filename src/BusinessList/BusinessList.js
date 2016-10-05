@@ -1,7 +1,6 @@
 //@flow
 import React, { Component } from 'react';
 import {
-    Button,
     Glyphicon,
     Image,
     ListGroup,
@@ -11,6 +10,7 @@ import type { Business } from '../types'
 import './BusinessList.css'
 
 import BusinessItem from './BusinessItem'
+import Button from '../Button'
 
 type BusinessProps = {
     businesses: Business[],
@@ -49,7 +49,7 @@ class BusinessList extends Component {
                     )) }
                 </ListGroup>
                 <div className='BusinessList-actions'>
-                    <Button className='BusinessList-actions-business'>
+                    <Button className='BusinessList-actions-business' outline={true} bsStyle='primary'>
                         <Glyphicon glyph='plus' /> New Business
                     </Button>
                 </div>

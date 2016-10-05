@@ -4,8 +4,16 @@ import React, {Component} from 'react';
 
 import type { MatchComponentProps } from '../types'
 
-import { List, ListItem, ListItemsWrapper } from '../List'
-import { Filters, InputFilter } from '../List';
+import {
+    DateFilter,
+    DateRangeFilter,
+    Filters,
+    InputFilter,
+    List,
+    ListItem,
+    ListItemsWrapper,
+} from '../List'
+
 import Layout from '../Layout';
 
 import './ListPage.css';
@@ -27,13 +35,17 @@ const items = [
 class ListPage extends Component {
     props: MatchComponentProps;
     state: {
-        loading: boolean
+        loading: boolean,
+        startDate?: moment$Moment,
     }
+
+    handleChange: () => void
 
     loadingTimeout: number | void
 
     constructor(props: MatchComponentProps) {
         super(props);
+        this.handleChange = this.handleChange.bind(this)
         this.state = {
             loading: true
         }
@@ -52,17 +64,31 @@ class ListPage extends Component {
         }
     }
 
+    handleChange(date: moment$Moment) {
+        this.setState({ startDate: date })
+    }
+
     render() {
         const {loading} = this.state;
 
         const actions = (
             <Filters>
-                <InputFilter label='Business'/>
+                <div>
+                    <DateFilter 
+                        selected={this.state.startDate}
+                        onChange={this.handleChange}
+                        label='Date' />
+                    <InputFilter label='Business'/>
+                    <DateRangeFilter 
+                        label='Date Range'/>
+                </div>
             </Filters>
         )
 
         return (
             <Layout title='Payments' padded={false} actions={actions} >
+                <DateFilter
+                    />
                 <List>
                     <ListItemsWrapper
                         emptyIcon='credit-card'

@@ -4,7 +4,7 @@ import { FormGroup, ControlLabel, FormControl } from '../../../Form'
 
 type InputFilterProps = {
     label: string,
-    [prop: string]: string,
+    [prop: string]: any,
 }
 
 const InputFilter = ({ label, ...other }: InputFilterProps) => {

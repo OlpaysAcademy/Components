@@ -5,8 +5,10 @@ import LoadingListItem from './LoadingListItem';
 import ListItemsWrapper from './ListItemsWrapper';
 
 export {
+    DateFilter,
+    DateRangeFilter,
+    Filters,
     InputFilter,
-    Filters
 } from './Filters';
 
 export {

@@ -1,123 +1,70 @@
 // @flow
-import moment from 'moment'
 import React, { Component } from 'react';
-import DatePicker from 'react-toolbox/lib/date_picker';
-import { Button } from 'react-toolbox/lib/button';
-import Tooltip from 'react-toolbox/lib/tooltip';
 
-const TooltipButton = Tooltip(Button);
+import { ControlLabel, FormGroup, DatePicker } from '../../../Form'
 
-import classes from './DateRangeFilter.scss';
-
-type DateRangeFilterProps = {
-    onChange: (from?: moment$Moment, to?: moment$Moment) => void,
-    value: moment$Moment,
-    autoOk: boolean,
-    fromLabel: string,
-    toLabel: string,
-    minDate?: moment$Moment,
-    maxDate?: moment$Moment,
-    locale: string | Object
+type DateRangeFilterValue = {
+    from: moment$Moment,
+    to: moment$Moment,
 }
 
-const maybeToDate = value => value ? value.toDate() : undefined
+type DateRangeFilterProps = {
+    datePickerProps?: { [prop: string]: any },
+    fromLabel?: string,
+    label: string,
+    maxDate?: moment$Moment,
+    minDate?: moment$Moment,
+    onChange?: (dates: DateRangeFilterValue) => any,
+    toLabel?: string,
+    value?: DateRangeFilterValue
+}
 
 class DateRangeFilter extends Component {
-    props: DateRangeFilterProps;
-    state: {
-        toActive: boolean,
-        from?: moment$Moment,
-        to?: moment$Moment
-    }
-    static defaultProps: {
-        onChange: () => void,
-        autoOk: boolean,
-        locale: string,
-    }
+    props: DateRangeFilterProps
+    
+    handleChange: (datePicker:string, date: moment$Moment) => any
+    state: DateRangeFilterValue
 
     constructor(props: DateRangeFilterProps) {
         super(props)
-        this.state = {
-            toActive: false
-        }
+        const { from, to } = props.value || {};
+        this.state = { from, to }
     }
 
-    handleFromChange(date: Date) {
-        console.log('from changed');
-        this.setState({
-            from: moment(date).startOf('day'),
-            toActive: true
-        }, this.callOnChange.bind(this))
-    }
-
-    handleToChange(date: Date) {
-        console.log('to changed');
-        this.setState({
-            to: moment(date).endOf('day'),
-            toActive: false
-        }, this.callOnChange.bind(this))
-    }
-
-    callOnChange() {
-        const { from, to } = this.state;
-        this.props.onChange(from, to)
-    }
-
-    clearRange() {
-        this.setState({
-            to: undefined,
-            from: undefined,
-            toActive: false
-        }, () => {
+    handleChange(datePicker: string, date: moment$Moment) {
+        this.setState({ [datePicker]: date }, () => {
+            const { onChange } = this.props;
+            if ( !onChange ) {
+                return;
+            }
             const { from, to } = this.state;
-            this.props.onChange(from, to)
+            onChange({ from, to });
         })
     }
 
-    clearToActive() {
-        this.setState({ toActive: false })
-    }
-
     render() {
-        const { minDate, maxDate, fromLabel, toLabel, ...other} = this.props
-        const { toActive, to, from } = this.state
-        const bindedClearToActive = this.clearToActive.bind(this);
-        // Missing clearToActive when clicking the cancel button
-        const onToExit = {
-            onEscKeyDown: bindedClearToActive,
-            onOverlayClick: bindedClearToActive,
-        }
-
+        const { fromLabel, label, maxDate, minDate, toLabel } = this.props
         return (
-            <div className={classes.DateRangeFilter}>
-                <DatePicker
-                    label={fromLabel}
-                    {...other}
-                    onChange={this.handleFromChange.bind(this) }
-                    minDate={ maybeToDate(minDate) }
-                    value={maybeToDate(from) }/>
-                <DatePicker
-                    label={toLabel}
-                    {...other}
-                    {...onToExit}
-                    active={toActive}
-                    onChange={this.handleToChange.bind(this) }
-                    minDate={ maybeToDate(this.state.from) }
-                    maxDate={ maybeToDate(maxDate) }
-                    value={maybeToDate(to) } />
-                <TooltipButton icon='grid_off'
-                    tooltip='Clear'
-                    className={classes.ClearButton}
-                    onClick={this.clearRange.bind(this) } />
-            </div>
+            <FormGroup>
+                <ControlLabel>{label}</ControlLabel>
+                <div className='DateRangeFilter-wrapper' style={{display: 'flex'}}>
+                    <DatePicker
+                        minDate={minDate}
+                        onChange={this.handleChange.bind(this, 'from')}
+                        placeholderText={fromLabel}
+                        selected={this.state.from} />
+                    { /* The offset (-110) avoid the widget from leaving the screen */ }
+                    <DatePicker
+                        onChange={this.handleChange.bind(this, 'to')}
+                        placeholderText={toLabel}
+                        popoverTargetOffset='10px -110px'
+                        selected={this.state.to}
+                        maxDate={maxDate}
+                        minDate={this.state.from} />
+                </div>
+            </FormGroup>
         );
     }
-}
-
-DateRangeFilter.defaultProps = {
-    onChange: () => { },
-    autoOk: true,
-    locale: 'en'
 }
 
 export default DateRangeFilter;
