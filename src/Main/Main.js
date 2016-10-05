@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import './Main.css';
 
 type MainProps = {
-    children?: React$Element<any>,
+    children?: React$Element<{}>,
     padded?: boolean,
 }
 

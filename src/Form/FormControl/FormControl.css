@@ -1,0 +1,9 @@
+.FormControl {
+    border-radius: 2px;
+}
+
+.FormControl:focus, .FormControl-focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: none;
+}

@@ -1,6 +1,5 @@
 import React, {createElement} from 'react';
-import PageTitle from './PageTitle'
-import Main from './Main'
+import Layout from './Layout'
 
 import type { MatchComponentProps } from './types'
 
@@ -17,12 +16,13 @@ const generatePage = (
     title: string,
     {subtitle, icon, padded}: GeneratePageOptions = {}
 ) => (props: MatchComponentProps) => (
-    <div>
-        <PageTitle title={title} subtitle={subtitle} icon={icon} />
-        <Main padded={padded} >
+    <Layout
+        title={title}
+        subtitle={subtitle}
+        icon={icon}
+        padded={padded} >
             { createElement(component, props) }
-        </Main>
-    </div>
+    </Layout>
 )
 
 export { getScreenWidth, generatePage }

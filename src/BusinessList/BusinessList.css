@@ -8,7 +8,7 @@
 }
 
 .BusinessList-divider {
-    background: #ccc;
+    background: #E8EEF5;
     margin: 5px -15px 5px -15px;
     height: 1px;
 }
@@ -38,8 +38,8 @@
 }
 
 .BusinessList-actions {
-    background: #eee;
-    border-top: 1px solid #ddd;
+    background: #efefef;
+    border-top: 1px solid #E8EEF5;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0 -15px -10px -15px;

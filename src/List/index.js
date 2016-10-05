@@ -5,6 +5,11 @@ import LoadingListItem from './LoadingListItem';
 import ListItemsWrapper from './ListItemsWrapper';
 
 export {
+    InputFilter,
+    Filters
+} from './Filters';
+
+export {
     List,
     ListItem,
     LoadingListItem,

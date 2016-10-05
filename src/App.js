@@ -12,7 +12,8 @@ import {
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Miss from 'react-router/Miss'
-import { generatePage } from './util';
+
+import { generatePage } from './util'
 
 import './App.css';
 
@@ -112,7 +113,7 @@ class App extends Component {
                                 <NavItem eventKey={2} href="#">Logout</NavItem>
                             </Nav>
                         </Navbar>
-                        <Match exactly pattern="/" component={generatePage(ListPage, 'Payments', { padded: false }) } />
+                        <Match exactly pattern="/" component={ListPage} />
                         <Miss component={generatePage(() => (<p>No se encontro</p>), '404')} />
                     </SideBar>
                 </div >

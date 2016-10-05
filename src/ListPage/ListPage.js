@@ -5,6 +5,8 @@ import React, {Component} from 'react';
 import type { MatchComponentProps } from '../types'
 
 import { List, ListItem, ListItemsWrapper } from '../List'
+import { Filters, InputFilter } from '../List';
+import Layout from '../Layout';
 
 import './ListPage.css';
 
@@ -52,28 +54,37 @@ class ListPage extends Component {
 
     render() {
         const {loading} = this.state;
+
+        const actions = (
+            <Filters>
+                <InputFilter label='Business'/>
+            </Filters>
+        )
+
         return (
-            <List>
-                <ListItemsWrapper 
-                    emptyIcon='credit-card'
-                    emptyMessage={`You don't have any payments right now. As soon as you receive the first one it will be shown here`}
-                    itemsCount={2}
-                    loading={loading}
-                    times={10} >
-                    {items.map((item: Item) =>
-                        <ListItem key={item._id} className='ListPageItem'>
-                            <div>
-                                <span className='ListPageItem-amount'>{item.amount / 100}</span>
-                                {" - "}
-                                <span className='ListPageItem-amount'>{item._id}</span>
-                            </div>
-                            <div>
-                                <span className='ListPageItem-nameOnCard'>{item.nameOnCard}</span>
-                            </div>
-                        </ListItem>
-                    ) }
-                </ListItemsWrapper>
-            </List>
+            <Layout title='Payments' padded={false} actions={actions} >
+                <List>
+                    <ListItemsWrapper
+                        emptyIcon='credit-card'
+                        emptyMessage={`You don't have any payments right now. As soon as you receive the first one it will be shown here`}
+                        itemsCount={2}
+                        loading={loading}
+                        times={10} >
+                        {items.map((item: Item) =>
+                            <ListItem key={item._id} className='ListPageItem'>
+                                <div>
+                                    <span className='ListPageItem-amount'>{item.amount / 100}</span>
+                                    {" - "}
+                                    <span className='ListPageItem-amount'>{item._id}</span>
+                                </div>
+                                <div>
+                                    <span className='ListPageItem-nameOnCard'>{item.nameOnCard}</span>
+                                </div>
+                            </ListItem>
+                        ) }
+                    </ListItemsWrapper>
+                </List>
+            </Layout >
         )
     }
 }

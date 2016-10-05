@@ -1,0 +1,9 @@
+.Filters-Popover-wrapper {
+    width: 280px;
+}
+
+.Filter-Popover-actions {
+    border-bottom: 1px #E8EEF5 solid;
+    margin: 0 -15px 10px -15px;
+    padding: 0 15px 10px 15px;
+}

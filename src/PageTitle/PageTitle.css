@@ -3,9 +3,17 @@
     background: #fff;
 }
 
+.PageTitle--has-actions {
+    display: flex;
+}
+
 .PageTitle-title {
     font-weight: 300;
     margin: 0
+}
+
+.PageTitle--has-actions .PageTitle-wrapper {
+    flex: 1
 }
 
 .PageTitle-subtitle {
