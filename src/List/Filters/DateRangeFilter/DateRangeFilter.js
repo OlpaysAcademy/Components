@@ -33,6 +33,13 @@ class DateRangeFilter extends Component {
         this.state = { from, to }
     }
 
+    componentWillReceiveProps(newProps: DateRangeFilterProps) {
+        if (this.props.value !== newProps.value) {
+            const { from, to } = newProps.value || {};
+            this.setState({ from, to });
+        }
+    }
+
     handleChange(datePicker: string, date: moment$Moment) {
         this.setState({ [datePicker]: date }, () => {
             const { onChange } = this.props;

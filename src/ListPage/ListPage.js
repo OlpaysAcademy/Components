@@ -82,7 +82,9 @@ class ListPage extends Component {
                         label='Date' />
                     <InputFilter label='Business'/>
                     <DateRangeFilter
-                        label='Date Range'/>
+                        label='Date Range'
+                        fromLabel='From'
+                        toLabel='To' />
                 </div>
             </Filters>
         )
