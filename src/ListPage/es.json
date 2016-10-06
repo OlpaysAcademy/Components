@@ -1,0 +1,18 @@
+[
+    {
+        "id": "ListPage.no-payments",
+        "defaultMessage": "Por el momento no tienes ningún pago. Apenas recibas uno, lo tendrás exhibido aquí"
+    },
+    {
+        "id": "ListPage.payments",
+        "defaultMessage": "Pagos"
+    },
+    {
+        "id": "ListPage.business",
+        "defaultMessage": "{plural, select, true{Comercios} false{Comercio} other{Comercios}}"
+    },
+    {
+        "id": "ListPage.filters",
+        "defaultMessage": "Filtros"
+    }
+]

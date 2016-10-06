@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import {
     Glyphicon,
@@ -20,11 +21,13 @@ import './App.css';
 import SideBar from './SideBar'
 import BusinessList from './BusinessList'
 import ListPage from './ListPage'
+import messages from './messages';
+import listPageMessages from './ListPage/messages';
 
 const items = [
-    { icon: 'home', label: 'Home', route: '/' },
-    { icon: 'credit-card', label: 'Payments', route: '/asdf' },
-    { icon: 'piggy-bank', label: 'Extractions', route: '/asdf' },
+    { icon: 'home', label: <FormattedMessage {...messages.home} />, route: '/' },
+    { icon: 'credit-card', label: <FormattedMessage {...listPageMessages.payments} />, route: '/asdf' },
+    { icon: 'piggy-bank', label: <FormattedMessage {...messages.extractions} values={{ plural: true }} />, route: '/asdf' },
     {
         icon: 'cog', label: 'Configuration', route: '/asdf', opened: false, items: [
             { label: 'Home', route: '/asdf' },
@@ -110,7 +113,7 @@ class App extends Component {
                                         <Glyphicon glyph='th' />
                                     </NavItem>
                                 </OverlayTrigger>
-                                <NavItem eventKey={2} href="#">Logout</NavItem>
+                                <NavItem eventKey={2} href="#"><FormattedMessage {...messages.logout} /></NavItem>
                             </Nav>
                         </Navbar>
                         <Match exactly pattern="/" component={ListPage} />

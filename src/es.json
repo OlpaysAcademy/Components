@@ -1,0 +1,14 @@
+[
+    {
+        "id": "App.logout",
+        "defaultMessage": "Cerrar sesión"
+    },
+    {
+        "id": "App.home",
+        "defaultMessage": "Inicio"
+    },
+    {
+        "id": "App.extractions",
+        "defaultMessage": "{plural, select, true{Extracciones} false{Extracción}}"
+    }
+]

@@ -12,7 +12,7 @@ import './ListItemsWrapper.css';
 type ListItemsWrapperProps = {
     children?: React$Element<{}>,
     className?: ClassNamesParams,
-    emptyMessage: string,
+    emptyMessage: React$Element<{}>,
     emptyIcon?: string,
     itemsCount?: number,
     loading: boolean,

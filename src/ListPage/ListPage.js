@@ -1,12 +1,15 @@
 // @flow
 import R from 'ramda';
 import React, {Component} from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import type { MatchComponentProps } from '../types'
 
 import { List, ListItem, ListItemsWrapper } from '../List'
 import { Filters, InputFilter } from '../List';
 import Layout from '../Layout';
+import messages from './messages';
+import Translation from '../Translation';
 
 import './ListPage.css';
 
@@ -16,13 +19,7 @@ type Item = {
     nameOnCard: string
 }
 
-const items = [
-    { _id: '57f2ae54842412e9daffc71f', amount: 10000, nameOnCard: 'Alberto Spinetta' },
-    { _id: '57f2ae54842412e9daffc711', amount: 20000, nameOnCard: 'Charly Garcia' },
-    { _id: '57f2ae54842412e9daffc712', amount: 1000000, nameOnCard: 'Maria de la Torre Albertico Saramugra El Santo Garota' },
-    { _id: '57f2ae54842412e9daffc713', amount: 5000, nameOnCard: 'Alberto Spinetta' },
-    { _id: '57f2ae54842412e9daffc714', amount: 10000, nameOnCard: 'Alberto Spinetta' },
-]
+const items = [];
 
 class ListPage extends Component {
     props: MatchComponentProps;
@@ -54,20 +51,28 @@ class ListPage extends Component {
 
     render() {
         const {loading} = this.state;
-
+        const Messages = Translation({filter: messages.filters, business: messages.business});
         const actions = (
-            <Filters>
-                <InputFilter label='Business'/>
-            </Filters>
+            <Messages values={{ business: { plural: true }}}>
+                {
+                    ({filter, business}) =>{
+                        return (
+                            <Filters filterText={filter}>
+                                <InputFilter label={business}/>
+                            </Filters>
+                        );
+                    }
+                }
+            </Messages>
         )
 
         return (
-            <Layout title='Payments' padded={false} actions={actions} >
+            <Layout title={<FormattedMessage {...messages.payments} />} padded={false} actions={actions} >
                 <List>
                     <ListItemsWrapper
                         emptyIcon='credit-card'
-                        emptyMessage={`You don't have any payments right now. As soon as you receive the first one it will be shown here`}
-                        itemsCount={2}
+                        emptyMessage={<FormattedMessage {...messages.noPayments} />}
+                        itemsCount={items.length}
                         loading={loading}
                         times={10} >
                         {items.map((item: Item) =>

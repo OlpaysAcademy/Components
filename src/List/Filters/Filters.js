@@ -1,7 +1,9 @@
 // @flow
 import React, {Component}  from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Popover, OverlayTrigger, Glyphicon } from 'react-bootstrap'
 import Button from '../../Button'
+import messages from './messages';
 
 import './Filter.css'
 
@@ -23,14 +25,13 @@ class Filters extends Component {
             <Popover id="Filters-Popover" className='Filters-Popover' style={{ maxWidth: 'none' }} >
                 <div className='Filters-Popover-wrapper'>
                     <div className='Filter-Popover-actions'>
-                        <Button secondary={true}>Clear</Button>
-                        <Button primary={true} className='pull-right'>Apply</Button>
+                        <Button secondary={true}><FormattedMessage {...messages.clear} /></Button>
+                        <Button primary={true} className='pull-right'><FormattedMessage {...messages.apply} /></Button>
                     </div>
                     {this.props.children}
                 </div>
             </Popover>
         );
-
 
         return (
             <div className='Filters'>

@@ -1,0 +1,10 @@
+[
+    {
+        "id": "Filters.apply",
+        "defaultMessage": "Aplicar"
+    },
+    {
+        "id": "Filters.clear",
+        "defaultMessage": "Borrar"
+    }
+]
