@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import type { MatchComponentProps } from '../types'
 
 import {
+    AsyncSelectFilter,
     DateFilter,
     DateRangeFilter,
     Filters,
@@ -90,6 +91,13 @@ class ListPage extends Component {
                         fromLabel='From'
                         toLabel='To' />
                     <SelectFilter label='Status' options={options} />
+                    <AsyncSelectFilter
+                        label='Async Filter'
+                        url={(input) => `https://api.github.com/search/users?q=${input}`}
+                        autoload={false}
+                        transform={(res) => res.items.map(r => ({ value: r.id, label: r.login }))} 
+                        >
+                    </AsyncSelectFilter>
                 </div>
             </Filters>
         )

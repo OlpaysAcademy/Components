@@ -15,6 +15,7 @@ class SelectFilter extends Component {
         return (
             <LabeledInput label={label}>
                 <Select
+                    placeholder={label}
                     {...other}
                     />
             </LabeledInput>

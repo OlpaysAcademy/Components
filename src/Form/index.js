@@ -4,11 +4,12 @@ import ControlLabel from './ControlLabel'
 import DatePicker from './DatePicker'
 import FormControl from './FormControl'
 import LabeledInput from './LabeledInput'
-import Select from './Select'
+import {AsyncSelect, Select} from './Select'
 
 import './Form.css';
 
 export { 
+    AsyncSelect,
     ControlLabel,
     DatePicker,
     Form,

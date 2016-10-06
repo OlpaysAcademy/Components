@@ -5,6 +5,7 @@ import LoadingListItem from './LoadingListItem';
 import ListItemsWrapper from './ListItemsWrapper';
 
 export {
+    AsyncSelectFilter,
     DateFilter,
     DateRangeFilter,
     Filters,

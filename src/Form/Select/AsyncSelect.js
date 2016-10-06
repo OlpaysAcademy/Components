@@ -10,23 +10,23 @@ import type { ClassNamesParams } from '../../types';
 
 import './Select.css'
 
-type SelectProps = {
+type AsyncSelectProps = {
     classNames?: ClassNamesParams,
     children?: React$Element<{}>,
     [prop: string]: any
 }
 
-const Select = (props: SelectProps) => {
+const AsyncSelect = (props: AsyncSelectProps) => {
     const { children, className, ...other } = props;
     // The component already has the 'Select' class
     const classes = classNames(className, 'ReactSelect')
     return (
-        <ReactSelect
+        <ReactSelect.Async
             {...other}
             className={classes} >
             {children}
-        </ReactSelect>
+        </ReactSelect.Async>
     )
 }
 
-export default Select
+export default AsyncSelect

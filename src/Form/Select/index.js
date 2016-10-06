@@ -1,5 +1,9 @@
 //@flow
 
+import AsyncSelect from './AsyncSelect'
 import Select from './Select'
 
-export default Select;
+export {
+    AsyncSelect,
+    Select,
+}
