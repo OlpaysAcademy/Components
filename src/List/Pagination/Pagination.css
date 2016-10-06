@@ -1,0 +1,13 @@
+.Pagination li a {
+    border: none;
+    border-radius: 2px;
+    color: #000;
+    margin: 0 2.4px;
+    padding: 2.5px 7.5px;
+    margin: 1px;
+}
+
+.Pagination li.active a, .Pagination li.active a:hover {
+    background-color: #4183D7;
+    padding: 3.5px 8.5px
+}

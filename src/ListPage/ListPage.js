@@ -13,6 +13,7 @@ import {
     List,
     ListItem,
     ListItemsWrapper,
+    Pagination,
     SelectFilter,
 } from '../List'
 
@@ -95,7 +96,7 @@ class ListPage extends Component {
                         label='Async Filter'
                         url={(input) => `https://api.github.com/search/users?q=${input}`}
                         autoload={false}
-                        transform={(res) => res.items.map(r => ({ value: r.id, label: r.login }))} 
+                        transform={(res) => res.items.map(r => ({ value: r.id, label: r.login })) }
                         >
                     </AsyncSelectFilter>
                 </div>
@@ -124,6 +125,12 @@ class ListPage extends Component {
                             </ListItem>
                         ) }
                     </ListItemsWrapper>
+                    <div className='text-center'>
+                        <Pagination
+                            activePage={5}
+                            items={10}
+                            />
+                    </div>
                 </List>
             </Layout >
         )

@@ -1,8 +1,9 @@
 // @flow
-import List from './List';
-import ListItem from './ListItem';
-import LoadingListItem from './LoadingListItem';
-import ListItemsWrapper from './ListItemsWrapper';
+import List from './List'
+import ListItem from './ListItem'
+import LoadingListItem from './LoadingListItem'
+import ListItemsWrapper from './ListItemsWrapper'
+import Pagination from './Pagination'
 
 export {
     AsyncSelectFilter,
@@ -18,4 +19,5 @@ export {
     ListItem,
     LoadingListItem,
     ListItemsWrapper,
+    Pagination,
 };
